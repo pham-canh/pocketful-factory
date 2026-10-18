@@ -146,6 +146,18 @@ def money(minor: int | float | None) -> str:
     return f"EUR {minor / 100:,.2f}"
 
 
+def amount(minor: int | float | None) -> str:
+    """The number without the currency, for a metric.
+
+    `st.metric` clips its value to the column, and "EUR 100.00 -> EUR 92.23" is clipped to
+    "EUR 100.00 -> EUR 9..." -- which puts an ellipsis inside the headline claim of the whole
+    page. The currency moves into the label instead.
+    """
+    if minor is None:
+        return "—"
+    return f"{minor / 100:,.2f}"
+
+
 def sign_in(email: str = "ada@example.com", password: str = "correct horse"):
     st_, body = call("POST", "/auth/login", email=email, password=password)
     if st_ != 200:
@@ -303,7 +315,7 @@ else:
     before, after, n_entries = balance_of(token), balance_of(token), 0
 
 c1, c2 = st.columns(2)
-c1.metric("balance", f"{money(before)} → {money(after)}")
+c1.metric("balance (EUR)", f"{amount(before)} → {amount(after)}")
 c2.metric("feed entries for this payment", n_entries)
 if two and after == before - 777 and n_entries == 1:
     st.success(f"one write, one entry, {money(before)} → {money(after)}")

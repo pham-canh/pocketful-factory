@@ -27,9 +27,9 @@ concurrent writes, and rounding.
 
 Stage 4 on screen above, run for real: `POST /_test/reset` answering 204, Ada signed in at
 EUR 100.00, an overdraft refused with the balance unchanged, then the same idempotency key
-fired twice answering `201` and then `200`. The capture is of
-[pham-canh/pocketful-demo](https://github.com/pham-canh/pocketful-demo), the Streamlit
-front end for this stage.
+fired twice answering `201` and then `200`. The page is `deploy/streamlit/streamlit_app.py`,
+and it is not a second implementation — it starts `stage-4/src/app.py`, the module the factory
+produced, as a subprocess, and every button on it is one HTTP call against that service.
 
 ## What is here
 

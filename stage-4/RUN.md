@@ -61,4 +61,24 @@ Added in this stage: `POST /payments/{id}/refunds`, an idempotent write the rece
 make; `POST /correction-batches`, an operator's idempotent write that is aware of settlements and
 applies all of its members or none; and `GET /payments/{id}/refunds`.
 
+## Or open the face on it
+
+`../deploy/streamlit/streamlit_app.py` is the judge-facing page for this stage. It is not a
+second implementation: it starts `src/app.py` — the exact module the factory produced — as a
+subprocess, and every button on it is one HTTP call against that service.
+
+```bash
+pip install -r ../deploy/streamlit/requirements.txt
+streamlit run ../deploy/streamlit/streamlit_app.py
+```
+
+It starts the service itself on port 8080, so run it before anything else already holds that
+port. The capture in `docs/demo.mp4` at the top of the repository is this page: reset answering
+204, Ada signed in at 100.00 EUR, an overdraft refused with the balance unchanged, then the same
+idempotency key fired twice answering 201 and then 200.
+
+`deploy/build_demo_repo.sh` assembles a separate deployable repo from that page and this
+folder, because Streamlit Community Cloud wants `streamlit_app.py` at the root of the repo it
+deploys and refuses to keep one copy of `app.py` in two places.
+
 Every stage-1, stage-2 and stage-3 check still passes against this folder.
