@@ -1,7 +1,7 @@
 # pocketful-factory
 
-[![CI](https://github.com/crytobot459/pocketful-factory/actions/workflows/ci.yml/badge.svg)](https://github.com/crytobot459/pocketful-factory/actions/workflows/ci.yml)
-[![claims](https://github.com/crytobot459/pocketful-factory/actions/workflows/ci.yml/badge.svg?job=claims)](https://github.com/crytobot459/pocketful-factory/actions/workflows/ci.yml)
+[![CI](https://github.com/pham-canh/pocketful-factory/actions/workflows/ci.yml/badge.svg)](https://github.com/pham-canh/pocketful-factory/actions/workflows/ci.yml)
+[![claims](https://github.com/pham-canh/pocketful-factory/actions/workflows/ci.yml/badge.svg?job=claims)](https://github.com/pham-canh/pocketful-factory/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 A software factory in three coding-agent seats. One of them decomposes a stage of a written
@@ -18,6 +18,18 @@ concurrent writes, and rounding.
 - Where every number here comes from: **[docs/EVIDENCE.md](docs/EVIDENCE.md)**
 - The room it worked in: `room.json`, the whole session
 - The service: `stage-1/` through `stage-4/`, one complete buildable service per stage
+
+<p align="center">
+  <img src="docs/demo-loop.gif" width="420" alt="Pocketful stage-4 demo: a refused overdraft, then the same payment fired twice answering 201 then 200">
+  <br>
+  <a href="docs/demo.mp4">▶ Play the 9-second capture (silent, no narration)</a>
+</p>
+
+Stage 4 on screen above, run for real: `POST /_test/reset` answering 204, Ada signed in at
+EUR 100.00, an overdraft refused with the balance unchanged, then the same idempotency key
+fired twice answering `201` and then `200`. The capture is of
+[pham-canh/pocketful-demo](https://github.com/pham-canh/pocketful-demo), the Streamlit
+front end for this stage.
 
 ## What is here
 
