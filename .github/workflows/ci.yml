@@ -10,7 +10,7 @@ jobs:
   claims:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0        # the stage-lock claims read git log
       - uses: actions/setup-python@v5
@@ -29,7 +29,7 @@ jobs:
       matrix:
         stage: [1, 2, 3, 4]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # The way a judge builds a folder: from its Dockerfile, with nothing else.
       - name: Build stage-${{ matrix.stage }}
@@ -68,7 +68,7 @@ jobs:
       matrix:
         stage: [1, 2, 3, 4]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Build stage-${{ matrix.stage }}
         run: docker build -t offline-stage${{ matrix.stage }} ./stage-${{ matrix.stage }}
@@ -115,7 +115,7 @@ jobs:
   deck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -130,7 +130,7 @@ jobs:
       matrix:
         stage: [1, 2, 3, 4]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -148,7 +148,7 @@ jobs:
       matrix:
         stage: [1, 3, 4]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
