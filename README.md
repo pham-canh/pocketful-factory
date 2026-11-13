@@ -31,6 +31,26 @@ fired twice answering `201` and then `200`. The page is `deploy/streamlit/stream
 and it is not a second implementation — it starts `stage-4/src/app.py`, the module the factory
 produced, as a subprocess, and every button on it is one HTTP call against that service.
 
+## Verify it in one command
+
+```bash
+python3 verify_claims.py                                  # every figure, against the evidence
+python3 verify_claims.py --markdown docs/EVIDENCE.md      # regenerate the evidence table
+```
+
+CI runs both: if a number in this README, `FACTORY.md`, `DECK.md` or `DEMO_SCRIPT.md`
+disagrees with the evidence, the build fails.
+
+## Run the service
+
+```bash
+cd stage-4 && pip install -r requirements.txt && PORT=8080 python3 -m src.app
+curl -s http://127.0.0.1:8080/health        # {"status":"ok"}
+```
+
+Each stage in `stage-1/` … `stage-4/` builds on its own, from its own Dockerfile,
+with no outbound network.
+
 ## What is here
 
 | Path | What it is |

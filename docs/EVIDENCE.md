@@ -10,28 +10,28 @@ number below disagrees with a document, the document is wrong.
 | Claim | What the evidence says | Source | In the documents |
 |---|---|---|---|
 | `room.total` | the room holds 121 messages | `room.json` | `README.md:10`, `FACTORY.md:58`, `DECK.md:30`, `DEMO_SCRIPT.md:83` |
-| `room.scope` | the export runs to the end of the room: it carries the final stage lock | `room.json` | `README.md:28`, `FACTORY.md:185` |
-| `room.seats` | 3 distinct agent seats are in the room | `room.json` | `README.md:251`, `FACTORY.md:13` |
+| `room.scope` | the export runs to the end of the room: it carries the final stage lock | `room.json` | `README.md:60`, `FACTORY.md:185` |
+| `room.seats` | 3 distinct agent seats are in the room | `room.json` | `README.md:283`, `FACTORY.md:13` |
 | `room.text` | 52 of those messages are the seats speaking | `room.json` | `FACTORY.md:139` |
 | `room.byseat` | the split across seats is 28 from the architect, 13 from the coder, 11 from the tester | `room.json` | `FACTORY.md:192` |
 | `room.accept` | 10 verdicts were ACCEPT | `room.json` | `FACTORY.md:109`, `DEMO_SCRIPT.md:84` |
 | `room.reject` | 0 verdicts were REJECT -- every verdict was ACCEPT | `room.json` | `FACTORY.md:109`, `DEMO_SCRIPT.md:84` |
-| `room.filler` | 9 of the 52 seat messages is a forbidden status line | `room.json` | `FACTORY.md:139` |
+| `room.filler` | 9 of the 52 seat messages is a forbidden status line | `room.json` | `README.md:25`, `FACTORY.md:139` |
 | `room.tokens_in` | 294,064 input tokens | `room.json` | `FACTORY.md:198` |
 | `room.tokens_out` | 18,549 output tokens | `room.json` | `FACTORY.md:198` |
 | `room.floor` | the token count is a floor, not a total, because the other two seats report usage through their own adapters | `room.json` | `FACTORY.md:200` |
 | `room.window` | the room window runs 2026-10-02 to 2026-10-03, about 25 hours | `room.json` | `FACTORY.md:184` |
 | `room.locks` | 7 stage locks are announced in the room | `room.json` | `FACTORY.md:193`, `DEMO_SCRIPT.md:84` |
 | `room.autonomy` | all 121 messages in the export were sent by an agent seat; no human account posted in the room | `room.json` | `README.md:11`, `FACTORY.md:59`, `DECK.md:31` |
-| `harness.folders` | 4 stage folders were built and probed | `docs/harness-runs/2026-10-03-final/summary.json` | `README.md:70` |
-| `harness.contiguous` | highest contiguous stage is 4 | `docs/harness-runs/2026-10-03-final/summary.json` | `README.md:75`, `FACTORY.md:50`, `DECK.md:97`, `DEMO_SCRIPT.md:147` |
-| `harness.share` | every folder scored share 1.0 | `docs/harness-runs/2026-10-03-final/summary.json` | `README.md:70`, `FACTORY.md:46`, `DECK.md:93` |
-| `harness.mode` | the run was in isolated mode, in a clean container | `docs/harness-runs/2026-10-03-final/summary.json` | `README.md:33`, `FACTORY.md:33`, `DECK.md:79`, `DEMO_SCRIPT.md:46` |
+| `harness.folders` | 4 stage folders were built and probed | `docs/harness-runs/2026-10-03-final/summary.json` | `README.md:102` |
+| `harness.contiguous` | highest contiguous stage is 4 | `docs/harness-runs/2026-10-03-final/summary.json` | `README.md:107`, `FACTORY.md:50`, `DECK.md:97`, `DEMO_SCRIPT.md:147` |
+| `harness.share` | every folder scored share 1.0 | `docs/harness-runs/2026-10-03-final/summary.json` | `README.md:102`, `FACTORY.md:46`, `DECK.md:93` |
+| `harness.mode` | the run was in isolated mode, in a clean container | `docs/harness-runs/2026-10-03-final/summary.json` | `README.md:65`, `FACTORY.md:33`, `DECK.md:79`, `DEMO_SCRIPT.md:46` |
 | `harness.claimed` | every folder claimed its own stage | `docs/harness-runs/2026-10-03-final/summary.json` | `FACTORY.md:46`, `DECK.md:93` |
 | `git.locks_exist` | every stage has a commit that both names and carries its lock (4/4) | `git log` | holds — evidence only, no document asserts it |
 | `git.locks_recorded` | FACTORY.md names the revision each stage locked at | `FACTORY.md` | `FACTORY.md:37` |
 | `git.history` | the history holds one commit per revision, not a single dump | `git log` | holds — evidence only, no document asserts it |
-| `git.history_stated` | the documents say the history is one commit per revision, not squashed | `README.md` | `README.md:95` |
+| `git.history_stated` | the documents say the history is one commit per revision, not squashed | `README.md` | `README.md:127` |
 | `stale.tokens_in` | the superseded token count 191,555 appears in no document | `git history` | clear |
 | `stale.tokens_out` | the superseded token count 16,068 appears in no document | `git history` | clear |
 | `stale.text_count` | the superseded seat-message count 41 appears in no document | `room.json` | clear |
